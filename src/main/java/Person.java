@@ -108,4 +108,30 @@ public class Person {
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
+
+    public void addParents(Person mother, Person father) {
+        this.mother = mother;
+        this.father = father;
+    }
+
+    public void addChild(Person child) {
+        this.children.add(child);
+    }
+
+    public void addPet(Pet pet) {
+        this.pets.add(pet);
+    }
+
+    public void addSibling(Person sibling) {
+        this.siblings.add(sibling);
+    }
+
+    public List<Person> getGrandChildren() {
+        List<Person> grandChildren = new ArrayList<>();
+        for (Person child : this.children) {
+            grandChildren.addAll(child.getChildren());
+        }
+        return grandChildren;
+    }
+
 }
